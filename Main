@@ -1,0 +1,15 @@
+import requests;
+
+webhookURL = input("Input webhook URL:\n")
+message = input("Input message to send:\n")
+username = input("Input bot username:\n")
+amount = int(input("Input amount of messages:\n"))
+
+payload = {
+  'content': message,
+  'username': username,
+}
+
+for i in range(amount):
+  req = requests.get(webhookURL, json=payload)
+  print (req.status_code)
